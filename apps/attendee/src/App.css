@@ -1,0 +1,22 @@
+.attendee-shell { width: min(100%, 460px); min-height: 100svh; margin: auto; padding: 22px 22px 96px; background: radial-gradient(circle at 80% 10%, #354244 0, #171b1d 35%); }
+.topbar, .bottom-nav { display: flex; align-items: center; justify-content: space-between; }
+.wordmark { color: #f8f4ed; font-family: Georgia, serif; font-size: 25px; text-decoration: none; letter-spacing: -1px; }
+.wordmark span { color: #e4aa52; }
+.avatar { width: 38px; height: 38px; border: 1px solid #687476; border-radius: 50%; background: transparent; color: #e4aa52; font-size: 12px; }
+.welcome { padding: 68px 4px 34px; }
+.eyebrow { margin: 0 0 10px; color: #bdc6c3; font-size: 10px; letter-spacing: 2px; }
+h1, h2, p { margin: 0; }
+h1 { color: #f8f4ed; font-family: Georgia, serif; font-size: clamp(39px, 11vw, 54px); font-weight: 400; letter-spacing: -2px; line-height: .98; }
+h1 em { color: #e4aa52; font-style: italic; }
+.intro { max-width: 280px; margin-top: 18px; color: #a9b3af; font-size: 14px; line-height: 1.55; }
+.event-card, .radar-card { border: 1px solid #3d494a; border-radius: 3px; background: rgba(36, 44, 45, .86); }
+.event-card { display: grid; grid-template-columns: 112px 1fr; min-height: 180px; overflow: hidden; }
+.event-art { position: relative; display: grid; place-items: center; overflow: hidden; background: #d66a42; color: #fcebd4; font-family: Georgia, serif; font-size: 38px; }
+.event-art::before, .event-art::after { content: ''; position: absolute; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; width: 140px; height: 140px; }
+.event-art::before { transform: translate(-35px, 42px); }.event-art::after { transform: translate(38px, -45px); }
+.event-art i { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #e4aa52; top: 27px; right: 25px; }
+.event-copy { padding: 21px 18px; }.event-copy h2, .radar-card h2 { color: #f8f4ed; font-family: Georgia, serif; font-size: 24px; font-weight: 400; }.event-copy > p:not(.eyebrow) { margin-top: 6px; color: #a9b3af; font-size: 12px; }.dot { margin: 0 5px; color: #e4aa52; }
+.checkin { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 25px; padding: 9px 10px 9px 12px; border: 1px solid #b7793c; border-radius: 2px; background: transparent; color: #e4aa52; font-size: 12px; text-align: left; }.checkin b { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; background: #e4aa52; color: #171b1d; font-size: 11px; }.checkin.active { border-color: #769b82; color: #a6ceae; }.checkin.active b { background: #a6ceae; }
+.radar-card { display: grid; grid-template-columns: 100px 1fr; gap: 15px; margin-top: 12px; padding: 18px; }.radar-visual { position: relative; display: grid; place-items: center; width: 92px; height: 92px; border: 1px solid #556466; border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 16px, rgba(154,179,166,.12) 17px 18px); }.pulse { width: 34px; height: 34px; border: 1px solid #e4aa52; border-radius: 50%; }.radar-dot { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #e4aa52; }.dot-one { top: 17px; right: 21px; }.dot-two { bottom: 19px; left: 18px; background: #9cc5a8; }.dot-three { top: 42px; left: 9px; background: #e5825e; }.muted { margin-top: 6px; color: #879390; font-size: 11px; line-height: 1.45; }.text-button { margin-top: 14px; padding: 0; border: 0; background: none; color: #e4aa52; font-size: 12px; }.text-button span { margin-left: 7px; }
+.bottom-nav { position: fixed; right: 0; bottom: 0; left: 0; z-index: 2; width: min(100%, 460px); margin: auto; padding: 13px 32px 17px; border-top: 1px solid #354143; background: rgba(23, 27, 29, .96); }.nav-item { display: grid; gap: 5px; justify-items: center; border: 0; background: none; color: #687476; font-size: 11px; }.nav-item span { display: grid; place-items: center; width: 23px; height: 23px; border: 1px solid #687476; border-radius: 50%; }.nav-item.selected { color: #e4aa52; }.nav-item.selected span { border-color: #e4aa52; background: #e4aa52; color: #171b1d; }
+@media (min-width: 461px) { .attendee-shell { min-height: 100vh; } .bottom-nav { position: absolute; } }
