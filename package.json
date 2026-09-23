@@ -1,13 +1,15 @@
 {
-  "name": "bifrost",
+  "name": "bifrost-monorepo",
   "private": true,
-  "version": "0.1.0",
-  "packageManager": "pnpm@10.15.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev:attendee": "pnpm --filter attendee dev",
-    "dev:organizer": "pnpm --filter organizer dev",
-    "build": "pnpm -r build",
-    "lint": "pnpm -r lint",
-    "typecheck": "pnpm -r exec tsc --noEmit"
+    "dev:attendee": "npm run dev --workspace=apps/attendee",
+    "dev:organizer": "npm run dev --workspace=apps/organizer"
+  },
+  "dependencies": {
+    "firebase": "^12.19.0"
   }
 }
