@@ -2,7 +2,7 @@
 
 Bifrost is an event networking workspace intended to make it easier for attendees to introduce themselves and exchange contact details at in-person events. The repository is a JavaScript/TypeScript monorepo containing an attendee web app, an organizer app placeholder, and shared TypeScript contracts.
 
-> **Project status:** early development. The attendee app currently supports anonymous Firebase sign-in, attendee profile editing, QR badge display, and QR badge scanning. The organizer app is not implemented yet. Features such as event management, proximity discovery, analytics, contact persistence, offline support, and a production PWA are planned concepts, not currently delivered functionality.
+> **Project status:** early development. The attendee app currently supports anonymous Firebase sign-in, attendee profile editing, QR badge display, QR badge scanning, and an installable PWA app shell. The app shell can load offline after an initial online visit, but Firebase authentication and profile operations still require connectivity. The organizer app is not implemented yet. Features such as event management, proximity discovery, analytics, durable offline data sync, and contact persistence are planned concepts, not currently delivered functionality.
 
 ## Contents
 
@@ -44,6 +44,7 @@ Bifrost is an event networking workspace intended to make it easier for attendee
 - **Styling:** Tailwind CSS v4 through the Vite plugin
 - **Icons:** Lucide React
 - **QR codes:** `qrcode.react` for badge generation and `html5-qrcode` for scanning
+- **PWA:** `vite-plugin-pwa` with Workbox-generated service worker and precached static assets
 - **Backend currently used by the attendee app:** Firebase Authentication, Cloud Firestore, Realtime Database initialization, and Firebase Analytics initialization
 - **Linting:** Oxlint
 - **Shared contracts:** TypeScript interfaces in `packages/shared-types`
@@ -118,6 +119,8 @@ npm run preview --workspace=apps/attendee
 
 The build runs the app's TypeScript project check followed by a Vite production build. The app uses `.jsx` component files; its TypeScript app configuration enables JavaScript source participation so the TypeScript entry point can import them.
 
+The production build generates the web manifest and service worker. The attendee app shell and static assets are available offline after a successful online visit. This does not cache Firebase profile documents or make sign-in and writes work offline. Use `npm run generate:pwa-assets --workspace=apps/attendee` to regenerate the manifest icons from `apps/attendee/public/pwa-icon.svg`.
+
 ### Organizer
 
 ```bash
@@ -185,8 +188,8 @@ The following are product directions from the original project brief, not claims
 - Mutual contact exchange and downloadable contact cards
 - Event-scoped attendee discovery and proximity presence
 - Organizer analytics and networking summaries
-- Resilient offline workflows and synchronization
-- Production PWA behavior, accessibility review, and end-to-end tests
+- Resilient offline profile workflows and synchronization
+- Accessibility review and end-to-end tests
 
 ## Troubleshooting
 
