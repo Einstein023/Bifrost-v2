@@ -1,46 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
-	font-family: 'DM Sans', sans-serif;
-	color: #202a2a;
-	background: #f3f5f1;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-optical-sizing: auto;
-	font-weight: 400;
+  font-family: "Segoe UI Variable", Aptos, "Segoe UI", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+
+  color-scheme: light;
+  --accent: #2878e8;
+  --accent-strong: #1558bc;
+  --accent-button: #1558bc;
+  --accent-button-hover: #104b9f;
+  --accent-muted: #83aee8;
+  --accent-disabled: #8aadd8;
+  --accent-soft: #eaf3ff;
+  --accent-border: #c6dcfa;
+  --focus-ring: rgb(40 120 232 / 28%);
+  --surface: #fff;
+  --surface-muted: #f3f7fc;
+  --pass-surface: #f3f8ff;
+  --text: #16243a;
+  --text-secondary: #53647b;
+  --text-muted: #687a91;
+  --line: #e0e8f1;
+  --line-strong: #ccd8e5;
+  --shadow: rgb(21 56 105 / 18%);
+  --camera-surface: #151a21;
+  --camera-control: #232a34;
+  --camera-control-hover: #2a3543;
+  --camera-line: #3b4858;
+  --camera-text: #f2f6fb;
+
+  color: var(--text);
+  background: var(--surface-muted);
 }
 
-* { box-sizing: border-box; }
-body { min-width: 320px; min-height: 100vh; margin: 0; }
-button, input { font: inherit; }
-button { -webkit-tap-highlight-color: transparent; }
-::selection { color: #173b37; background: #b7d8ce; }
-
-#qr-reader { width: 100%; border: 0 !important; }
-#qr-reader__dashboard { padding: 16px !important; }
-#qr-reader__dashboard_section_csr button,
-#qr-reader__dashboard_section_fsr button {
-	min-height: 40px;
-	padding: 8px 14px !important;
-	border: 1px solid #d4ded9 !important;
-	border-radius: 10px !important;
-	background: #fff !important;
-	color: #294a44 !important;
-	cursor: pointer;
-	transition: border-color 160ms ease, background-color 160ms ease;
+* {
+  box-sizing: border-box;
 }
-#qr-reader__dashboard_section_csr button:hover,
-#qr-reader__dashboard_section_fsr button:hover { border-color: #73998e !important; background: #f2f7f4 !important; }
-#qr-reader__dashboard select { max-width: 100%; min-height: 40px; padding: 8px 34px 8px 12px; border: 1px solid #d4ded9; border-radius: 10px; background-color: #fff; color: #294a44; }
-#qr-reader video { border-radius: 12px; }
-#qr-reader img { display: none; }
 
-@keyframes rise-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.animate-rise-in { animation: rise-in 500ms ease-out both; }
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--surface-muted);
+}
 
-@media (prefers-reduced-motion: reduce) {
-	*, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+body {
+  min-width: 320px;
+  min-height: 100dvh;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: #102c4f;
+  background: #c5ddff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --accent: #75adff;
+    --accent-strong: #a2c9ff;
+    --accent-button: #225ca2;
+    --accent-button-hover: #194a84;
+    --accent-muted: #658cbe;
+    --accent-disabled: #536d8c;
+    --accent-soft: #1d3048;
+    --accent-border: #345272;
+    --focus-ring: rgb(117 173 255 / 34%);
+    --surface: #151b23;
+    --surface-muted: #10151c;
+    --pass-surface: #192330;
+    --text: #eff4fb;
+    --text-secondary: #b4c1d1;
+    --text-muted: #a6b4c5;
+    --line: #2b3746;
+    --line-strong: #3a495b;
+    --shadow: rgb(0 0 0 / 36%);
+    --camera-surface: #0e1218;
+    --camera-control: #1d2631;
+    --camera-control-hover: #273647;
+    --camera-line: #3a4a5c;
+    --camera-text: #f2f6fb;
+  }
 }

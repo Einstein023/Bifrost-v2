@@ -58,29 +58,30 @@ export default function QrScanner({ onContactScanned }) {
   }, [onContactScanned]);
 
   return (
-    <section className="mx-auto max-w-2xl rounded-2xl border border-[#e1e8e2] bg-white p-5 shadow-[0_12px_36px_-28px_rgba(35,67,57,0.32)] sm:p-7">
-      <div className="mb-5 flex items-start gap-3">
-        <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-[#edf4ef] text-[#386d60]"><ScanLine size={19} /></span>
+    <section className="scanner-panel">
+      <div className="section-heading">
+        <span className="section-icon"><ScanLine aria-hidden="true" /></span>
         <div>
-          <h2 className="font-[Manrope] text-lg font-bold text-[#243b36]">Scan an attendee pass</h2>
-          <p className="mt-1 text-sm leading-5 text-[#74807b]">Use your camera to open someone’s attendee profile.</p>
+          <h2 className="section-title">Scan an attendee pass</h2>
+          <p className="section-description">Use your camera to open someone’s attendee profile.</p>
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-[#e3eae4] bg-[#f7f9f6]">
+      <p className="scanner-description">Allow camera access, then hold the badge inside the frame.</p>
+      <div className="scanner-window">
         <div id="qr-reader" />
       </div>
 
-      {loading && <p role="status" className="mt-4 flex items-center justify-center gap-2 text-sm font-medium text-[#56766b]"><LoaderCircle size={17} className="animate-spin" /> Fetching profile...</p>}
-      {error && <p role="alert" className="mt-4 rounded-xl border border-[#efd8d1] bg-[#fff7f4] px-3.5 py-3 text-sm text-[#9a4d3c]">{error}</p>}
+      {loading && <p role="status" className="loading-indicator"><LoaderCircle aria-hidden="true" /> Fetching profile...</p>}
+      {error && <p role="alert" className="status-message status-error">{error}</p>}
 
       {scannedUser && (
-        <div className="mt-5 flex animate-rise-in items-start gap-3 rounded-xl border border-[#d6e6d8] bg-[#f3f8f2] p-4 text-left">
-          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white text-[#56806c]"><UserRound size={19} /></span>
+        <div className="scanned-profile">
+          <span className="section-icon"><UserRound aria-hidden="true" /></span>
           <div className="min-w-0">
-            <h3 className="font-[Manrope] font-bold text-[#2c453b]">{scannedUser.full_name}</h3>
-            {scannedUser.headline && <p className="mt-0.5 text-sm text-[#6b7d73]">{scannedUser.headline}</p>}
-            {scannedUser.phone && <p className="mt-2 text-sm text-[#52685d]">{scannedUser.phone}</p>}
+            <h3 className="scanned-name">{scannedUser.full_name}</h3>
+            {scannedUser.headline && <p className="scanned-detail">{scannedUser.headline}</p>}
+            {scannedUser.phone && <p className="scanned-detail">{scannedUser.phone}</p>}
           </div>
         </div>
       )}
