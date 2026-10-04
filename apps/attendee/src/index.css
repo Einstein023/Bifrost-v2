@@ -8,34 +8,18 @@
   -moz-osx-font-smoothing: grayscale;
   font-optical-sizing: auto;
   font-weight: 400;
-
   color-scheme: light;
-  --accent: #2878e8;
-  --accent-strong: #1558bc;
-  --accent-button: #1558bc;
-  --accent-button-hover: #104b9f;
-  --accent-muted: #83aee8;
-  --accent-disabled: #8aadd8;
+  --blue: #2878e8;
+  --ink: #101726;
+  --surface: #f8fafc;
+  --text: #19263a;
+  --text-secondary: #5e6d81;
+  --line: #e1e7ef;
   --accent-soft: #eaf3ff;
-  --accent-border: #c6dcfa;
-  --focus-ring: rgb(40 120 232 / 28%);
-  --surface: #fff;
-  --surface-muted: #f3f7fc;
-  --pass-surface: #f3f8ff;
-  --text: #16243a;
-  --text-secondary: #53647b;
-  --text-muted: #687a91;
-  --line: #e0e8f1;
-  --line-strong: #ccd8e5;
-  --shadow: rgb(21 56 105 / 18%);
-  --camera-surface: #151a21;
-  --camera-control: #232a34;
-  --camera-control-hover: #2a3543;
-  --camera-line: #3b4858;
-  --camera-text: #f2f6fb;
-
+  --scan-green: #00d891;
+  --scan-background: #090b0e;
   color: var(--text);
-  background: var(--surface-muted);
+  background: #e9edf3;
 }
 
 * {
@@ -43,15 +27,17 @@
 }
 
 html {
-  min-width: 320px;
+  min-width: 0;
   min-height: 100%;
-  background: var(--surface-muted);
+  background: #e9edf3;
+  overflow-x: clip;
 }
 
 body {
-  min-width: 320px;
+  min-width: 0;
   min-height: 100dvh;
   margin: 0;
+  overflow-x: clip;
 }
 
 button,
@@ -68,31 +54,9 @@ button {
   background: #c5ddff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --accent: #75adff;
-    --accent-strong: #a2c9ff;
-    --accent-button: #225ca2;
-    --accent-button-hover: #194a84;
-    --accent-muted: #658cbe;
-    --accent-disabled: #536d8c;
-    --accent-soft: #1d3048;
-    --accent-border: #345272;
-    --focus-ring: rgb(117 173 255 / 34%);
-    --surface: #151b23;
-    --surface-muted: #10151c;
-    --pass-surface: #192330;
-    --text: #eff4fb;
-    --text-secondary: #b4c1d1;
-    --text-muted: #a6b4c5;
-    --line: #2b3746;
-    --line-strong: #3a495b;
-    --shadow: rgb(0 0 0 / 36%);
-    --camera-surface: #0e1218;
-    --camera-control: #1d2631;
-    --camera-control-hover: #273647;
-    --camera-line: #3a4a5c;
-    --camera-text: #f2f6fb;
+@media (max-width: 479px) {
+  html,
+  body {
+    background: var(--surface);
   }
 }

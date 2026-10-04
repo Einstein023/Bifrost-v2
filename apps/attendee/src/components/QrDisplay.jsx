@@ -1,8 +1,8 @@
 import React from "react";
-import { BadgeCheck, QrCode, ScanLine } from "lucide-react";
+import { BadgeCheck, QrCode, ScanLine, Share2 } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 
-export default function QrDisplay({ userId, profile }) {
+export default function QrDisplay({ userId, profile, onShare }) {
   if (!userId || !profile?.full_name) {
     return (
       <section className="pass-placeholder">
@@ -33,6 +33,9 @@ export default function QrDisplay({ userId, profile }) {
           <QRCodeSVG value={qrPayload} size={220} level="H" includeMargin />
         </div>
         <div className="pass-status"><ScanLine aria-hidden="true" /> Ready to connect</div>
+        <button className="pass-share-button" type="button" onClick={onShare}>
+          <Share2 aria-hidden="true" /> Share my pass
+        </button>
       </div>
       <p className="pass-note">Your personal badge for meeting people at Bifrost.</p>
     </section>
